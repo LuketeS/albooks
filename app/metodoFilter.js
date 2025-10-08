@@ -9,8 +9,6 @@ function filtrarLivros () {
     const elementoBotao = document.getElementById(this.id);
     const categoriaBotao = elementoBotao.value;
 
-    let livrosFiltrados = livros.filter( livro => {        
-        return livro.categoria == categoriaBotao;
-    })
+    let livrosFiltrados = categoriaBotao == "disponivel" ? livros.filter(livro => livro.quantidade > 0) : livros.filter( livro => livro.categoria == categoriaBotao)
     exibirOsLivrosNaTela(livrosFiltrados);
 }
